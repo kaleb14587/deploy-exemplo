@@ -16,8 +16,6 @@ if [[ "${reslog}" != "" ]] ; then
 	echo "composer update "
 	composer update --working-dir=$pathFile/$nameProject$temp
 	
-	echo "Gera o link simbolico no novo projeto"
-	ln -s $pathFile/$nameProject$temp/storage /var/storage
 	
 	echo "versiona o antigo que esta em producao"
 	mv $pathFile/$nameProject $pathFile/$nameProject$dt
@@ -27,6 +25,10 @@ if [[ "${reslog}" != "" ]] ; then
 	# arquivo env fica fora do projeto
 	echo "link do env"
 	ln -s  $envFile $pathFile/$nameProject/.env
+
+	echo "Gera o link simbolico no novo projeto"
+	ln -s /var/storage $pathFile/$nameProject/storage 
+
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
 	
