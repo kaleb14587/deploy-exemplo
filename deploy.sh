@@ -31,7 +31,11 @@ if [[ "${reslog}" != "" ]] ; then
 
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
-	
+	sudo php $pathFile/$nameProject/artisan cache:clear
+	echo "Publish any publishable assets from vendor packages"
+	sudo php $pathFile/$nameProject/artisan vendor:publish
+	sudo php $pathFile/$nameProject/artisan key:generate 
+sh
 else 
 	echo "sem git instalado";
 fi
