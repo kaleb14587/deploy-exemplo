@@ -27,7 +27,7 @@ if [[ "${reslog}" != "" ]] ; then
 	ln -s  $envFile $pathFile/$nameProject/.env
 
 	echo "Gera o link simbolico no novo projeto do storage"
-	ln -s  $pathFile/$nameProject/storage /var/storage
+	ln -s  $pathFile/$nameProject/storage /var/storage/
 
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
