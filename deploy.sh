@@ -12,7 +12,7 @@ if [[ "${reslog}" != "" ]] ; then
 		dt=$(date  "+%Y%m%d_%H%M%S");
 		
 	echo "composer update "
-	composer update --working-dir=$pathFile/vyper_$dt
+	composer update --working-dir=$pathFile/vyper_tmp
 	
 	echo "Gera o link simbolico no novo projeto"
 	#ln -s $pathFile/novo-sistema_tmp/storage /var/storage
