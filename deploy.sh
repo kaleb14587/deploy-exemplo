@@ -24,7 +24,9 @@ if [[ "${reslog}" != "" ]] ; then
 	
 	echo "substitui o antigo pelo novo projeto"
 	mv $pathFile/$nameProject$temp $pathFile/$nameProject
-	ln -s $pathFile/$nameProject/.env $envFile
+	# arquivo env fica fora do projeto
+	echo "link do env"
+	ln -s  $envFile $pathFile/$nameProject/.env
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
 	
