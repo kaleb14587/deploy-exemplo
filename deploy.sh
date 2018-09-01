@@ -35,7 +35,9 @@ if [[ "${reslog}" != "" ]] ; then
 	echo "Publish any publishable assets from vendor packages"
 	sudo php $pathFile/$nameProject/artisan vendor:publish
 	sudo php $pathFile/$nameProject/artisan key:generate 
-sh
+	
+	chmod -R 777 /var/www/html/vyper/storage/
+
 else 
 	echo "sem git instalado";
 fi
