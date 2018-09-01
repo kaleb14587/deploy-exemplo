@@ -4,24 +4,27 @@
 # git fetch origin
 reslog=$(git --version )
 pathFile=/var/www/html
-envFile=/usr/kaleb/.env
+envFile=/var/.env
+nameProject=vyper
+temp=_tmp
 if [[ "${reslog}" != "" ]] ; then
 
-	git clone https://kaleb14587:KpclwAy07eb@github.com/kaleb14587/vyper-backend.git $pathFile/vyper_tmp
+	git clone https://kaleb14587:KpclwAy07eb@github.com/kaleb14587/vyper-backend.git $pathFile/$nameProject$temp
 	
 		dt=$(date  "+%Y%m%d_%H%M%S");
 		
 	echo "composer update "
-	composer update --working-dir=$pathFile/vyper_tmp
+	composer update --working-dir=$pathFile/$nameProject$temp
 	
 	echo "Gera o link simbolico no novo projeto"
-	#ln -s $pathFile/novo-sistema_tmp/storage /var/storage
+	ln -s $pathFile/$nameProject$temp/storage /var/storage
+	
 	echo "versiona o antigo que esta em producao"
-	mv $pathFile/vyper $pathFile/vyper_$dt
+	mv $pathFile/$nameProject $pathFile/$nameProject$dt
 	
 	echo "substitui o antigo pelo novo projeto"
-	mv $pathFile/vyper_tmp $pathFile/vyper
-	
+	mv $pathFile/$nameProject$temp $pathFile/$nameProject
+	ln -s $pathFile/$nameProject/.env $envFile
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
 	
