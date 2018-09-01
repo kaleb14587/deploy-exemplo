@@ -11,15 +11,17 @@ if [[ "${reslog}" != "" ]] ; then
 	
 		dt=$(date  "+%Y%m%d_%H%M%S");
 		
-
+	echo "composer update "
+	composer update --working-dir=$pathFile/vyper_$dt
+	
 	echo "Gera o link simbolico no novo projeto"
 	#ln -s $pathFile/novo-sistema_tmp/storage /var/storage
 	echo "versiona o antigo que esta em producao"
 	mv $pathFile/vyper $pathFile/vyper_$dt
+	
 	echo "substitui o antigo pelo novo projeto"
 	mv $pathFile/vyper_tmp $pathFile/vyper
-	echo "composer update "
-	$pathFile/vyper composer update
+	
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
 	
