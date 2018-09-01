@@ -7,9 +7,10 @@ pathFile=/var/www/html
 envFile=/var/.env
 nameProject=vyper
 temp=_tmp
+repository=https://git/repo/repo.git
 if [[ "${reslog}" != "" ]] ; then
 
-	git clone https://kaleb14587:KpclwAy07eb@github.com/kaleb14587/vyper-backend.git $pathFile/$nameProject$temp
+	git clone $repository $pathFile/$nameProject$temp
 	
 		dt=$(date  "+%Y%m%d_%H%M%S");
 		
@@ -43,4 +44,4 @@ else
 fi
 #  git merge origin/master # completing the pull
 
-#https://gitlab.com/project/project/-/archive/master/project-master.tar.gz
+
