@@ -18,6 +18,8 @@ if [[ "${reslog}" != "" ]] ; then
 	mv $pathFile/vyper $pathFile/vyper_$dt
 	echo "substitui o antigo pelo novo projeto"
 	mv $pathFile/vyper_tmp $pathFile/vyper
+	echo "composer update "
+	$pathFile/vyper composer update
 	echo "migrando as atualizações de banco"
 #	php $pathFile/novo-sistema/artisan migrate
 	
