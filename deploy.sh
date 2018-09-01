@@ -3,7 +3,7 @@
 # baixa a ultima versao do codigo branch master
 # git fetch origin
 reslog=$(git --version )
-pathFile=/var/www/html/
+pathFile=/var/www/html
 envFile=/usr/kaleb/.env
 if [[ "${reslog}" != "" ]] ; then
 
