@@ -31,7 +31,7 @@ if [[ "${reslog}" != "" ]] ; then
 	ln -s  $pathFile/$nameProject/storage /var/storage/
 
 	echo "migrando as atualizações de banco"
-#	php $pathFile/novo-sistema/artisan migrate
+	sudo php $pathFile/$nameProject/artisan migrate
 	sudo php $pathFile/$nameProject/artisan cache:clear
 	echo "Publish any publishable assets from vendor packages"
 	sudo php $pathFile/$nameProject/artisan vendor:publish
