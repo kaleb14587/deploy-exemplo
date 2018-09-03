@@ -28,7 +28,7 @@ if [[ "${reslog}" != "" ]] ; then
 	ln -s  $envFile $pathFile/$nameProject/.env
 
 	echo "Gera o link simbolico no novo projeto do storage"
-	ln -s  $pathFile/$nameProject/storage /var/storage/
+	ln -s  /var/storage/ $pathFile/$nameProject/storage 
 
 	echo "migrando as atualizações de banco"
 	sudo php $pathFile/$nameProject/artisan migrate
@@ -36,8 +36,8 @@ if [[ "${reslog}" != "" ]] ; then
 	echo "Publish any publishable assets from vendor packages"
 	sudo php $pathFile/$nameProject/artisan vendor:publish
 	sudo php $pathFile/$nameProject/artisan key:generate 
-	
-	chmod -R 777 /var/www/html/vyper/storage/
+	#sudo php $pathFile/$nameProject/artisan passport:install
+#	chmod -R 777 /var/www/html/vyper/storage/
 
 else 
 	echo "sem git instalado";
